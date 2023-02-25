@@ -8,6 +8,11 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>A quiz game</p>
       </header>
+
+      {/* Game Content */}
+      <main>
+        <h1>Welcome to the quiz!</h1>
+      </main>
     </div>
   );
 }
