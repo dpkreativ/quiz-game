@@ -1,4 +1,4 @@
-export default questions = [
+const questions = [
   {
     question: 'Which of these is a JavaScript library?',
     choices: ['Vue', 'Flask', 'Rails', 'Cargo'],
@@ -27,3 +27,5 @@ export default questions = [
     answer: 'Two months',
   },
 ];
+
+export default questions;

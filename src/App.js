@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Question from './components/Question';
+import questions from './components/Questions';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       {/* Game Content */}
       <main>
         <h1>Welcome to the quiz!</h1>
-        <Question />
+        {questions.map((question) => (
+          <Question question={question.question} options={question.choices} />
+        ))}
       </main>
     </div>
   );
