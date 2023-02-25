@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Question from './components/Question';
 import { useState } from 'react';
+import ThanksForPlaying from './components/ThanksForPlaying';
 
 function App() {
   const questions = [
@@ -36,6 +37,9 @@ function App() {
 
   const [index, setIndex] = useState(0);
   const [displayQuestion, setDisplayQuestion] = useState(questions[index]);
+  const [score, setScore] = useState(0);
+  const [previousScore, setPreviousScore] = useState(null);
+  const [finished, setFinished] = useState(false);
 
   function handleSelectedChoice(e) {
     e.preventDefault();
@@ -46,7 +50,21 @@ function App() {
       let temp = index + 1;
       setIndex(temp);
       setDisplayQuestion(questions[temp]);
+    } else {
+      setFinished(true);
     }
+
+    if (e.target.value === questions[index].answer) {
+      setScore(score + 5);
+    }
+  }
+
+  function handleGameOver() {
+    setPreviousScore(score);
+    setIndex(0);
+    setDisplayQuestion(questions[0]);
+    setScore(0);
+    setFinished(false);
   }
 
   return (
@@ -58,13 +76,18 @@ function App() {
 
       {/* Game Content */}
       <main>
-        <h1>Welcome to the quiz!</h1>
+        <h1>Your score: {score}</h1>
+        {previousScore && <h2>Previous score: {previousScore}</h2>}
 
-        <Question
-          question={displayQuestion.question}
-          choices={displayQuestion.choices}
-          onClick={handleSelectedChoice}
-        />
+        {finished ? (
+          <ThanksForPlaying onClick={handleGameOver} />
+        ) : (
+          <Question
+            question={displayQuestion.question}
+            choices={displayQuestion.choices}
+            onClick={handleSelectedChoice}
+          />
+        )}
       </main>
     </div>
   );
