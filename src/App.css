@@ -34,3 +34,17 @@
     transform: rotate(360deg);
   }
 }
+
+.question {
+  padding: 5vmin;
+  max-width: fit-content;
+  margin: auto;
+}
+
+.question div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vmin;
+}
+
+

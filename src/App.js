@@ -44,18 +44,16 @@ function App() {
   function handleSelectedChoice(e) {
     e.preventDefault();
 
-    console.log(e.target.value);
-    console.log(index);
+    if (e.target.value === questions[index].answer) {
+      setScore(score + 5);
+    }
+
     if (index < questions.length - 1) {
       let temp = index + 1;
       setIndex(temp);
       setDisplayQuestion(questions[temp]);
     } else {
       setFinished(true);
-    }
-
-    if (e.target.value === questions[index].answer) {
-      setScore(score + 5);
     }
   }
 

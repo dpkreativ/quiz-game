@@ -6,7 +6,7 @@ export default function Question({
   onClick,
 }) {
   return (
-    <div>
+    <div className="question">
       <h2>{question}</h2>
       <div>
         {choices.map((choice, index) => (
