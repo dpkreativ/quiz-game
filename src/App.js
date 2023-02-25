@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Question from './components/Question';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {/* Game Content */}
       <main>
         <h1>Welcome to the quiz!</h1>
+        <Question />
       </main>
     </div>
   );
